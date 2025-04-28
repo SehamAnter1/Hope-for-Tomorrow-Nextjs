@@ -4,7 +4,7 @@ export default function Navbar() {
     return (
         <nav className="flex justify-between items-center py-4 px-8 bg-white ">
             <div className="flex items-center gap-2">
-                {/* <img src="/logo.png" alt="Hope for Tomorrow" className="h-8" /> */}
+                <img src="/logo.png" alt="Hope for Tomorrow" className="h-[42px]" />
                 <span className="font-bold text-lg text-primary">Hope for Tomorrow</span>
             </div>
 
