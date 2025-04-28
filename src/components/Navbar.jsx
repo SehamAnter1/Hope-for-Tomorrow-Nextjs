@@ -8,7 +8,7 @@ export default function Navbar() {
                 <span className="font-bold text-lg text-primary">Hope for Tomorrow</span>
             </div>
 
-            <div className="flex gap-6 items-center">
+            <div className="flex  text-black gap-6 items-center">
                 <div className="hidden md:flex gap-6 text-sm font-medium">
                     <a href="#" className="hover:underline">
                         Project
