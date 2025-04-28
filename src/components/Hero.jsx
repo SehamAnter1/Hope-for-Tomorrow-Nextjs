@@ -1,8 +1,11 @@
 "use client";
 
+import {useSWRFetcher} from "@/hooks/useSWRFetcher";
 import Image from "next/image";
 
 export default function Hero() {
+    const {data, isLoading, isError, error} = useSWRFetcher("/api/categories/");
+    console.log("data", data);
     return (
         <section className="flex flex-col-reverse md:flex-row items-center justify-between px-8 ">
             <div className="md:w-1/2 space-y-6">
