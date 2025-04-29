@@ -2,55 +2,54 @@
 
 // import
 import Form_Builder from "@/components/Form_Builder";
-import { z } from "zod";
-
-// schema
-const loginSchema = z.object({
-  email: z.string().email({ message: "Invalid email" }),
-  password: z.string().min(6, { message: "At least 6 characters" }),
-});
 
 // page
 export default function Login() {
   
-     const loginFields = [
+    const Input_List = [
         {
-          name: "email",
-          label: "Email",
-          type: "email",
-          placeholder: "Enter your email",
+            id: 2,
+            type: "input",
+            fieldName: "email",
+            inputType: "email",
+            // icon: email_icon,
+            label: "email",
+            placeholder: "enter_email",
+            validator: {
+                required: "This field is required",
+                pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalid email address",
+                },
+            },
         },
         {
-          name: "password",
-          label: "Password",
-          type: "password",
-          placeholder: "Enter your password",
+            id: 3,
+            type: "input",
+            // icon: password_icon,
+            fieldName: "password",
+            inputType: "password",
+            label: "password",
+            placeholder: "enter_password",
+            validator: {
+                required: "This field is required",
+            },
         },
-        {
-          name: "bio",
-          label: "Bio",
-          type: "textarea",
-          placeholder: "Tell us about yourself",
-        },
-        {
-          name: "role",
-          label: "Role",
-          type: "select",
-          placeholder: "Select your role",
-          options: [
-            { value: "admin", label: "Admin" },
-            { value: "user", label: "User" },
-            { value: "guest", label: "Guest" },
-          ],
-        },
-      ];
+    ];
       
   const handleLogin = (values) => {
     console.log(values);
   };
   return (
     <div className="max-w-md mx-auto mt-10">
-      <Form_Builder fields={loginFields} schema={loginSchema} onSubmit={handleLogin} />
+      <Form_Builder 
+                    Input_List={Input_List}
+                    onSubmit={handleLogin}
+                    from="auth"
+                    // btn_to={`/auth/${role}/profile`}
+                    with_forget_text={true}
+                    button_label="login"
+                />
     </div>
   );
 }
