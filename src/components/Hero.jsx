@@ -6,7 +6,7 @@ export default function Hero() {
     const {data, isLoading, isError, error} = useSWRFetcher("/api/projects/latest/");
 
     return (
-        <section className="flex pt-[20px] md:pt-[56px] flex-col-reverse md:flex-row items-center justify-between px-8">
+        <section className="flex pt-[20px] md:pt-[56px] flex-col-reverse md:flex-row items-center justify-between ">
             {/* Left Section */}
             <div className="md:w-1/2 space-y-6">
                 <h1 className="text-4xl text-secondary font-bold leading-snug">
