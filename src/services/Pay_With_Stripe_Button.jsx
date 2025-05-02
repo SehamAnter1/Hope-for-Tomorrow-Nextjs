@@ -3,11 +3,12 @@ import {loadStripe} from "@stripe/stripe-js";
 import Button from "@/components/Button";
 import axiosInstance from "./axiosInstance";
 import toast from "react-hot-toast";
+import {apiUrls} from "./apiUrls";
 export default function Stipe_Payment() {
     const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUPLISH_KEY);
     const handleClick = async () => {
         try {
-            const response = await axiosInstance.post(`api/payment/`, {
+            const response = await axiosInstance.post(apiUrls.payment, {
                 project_id: 8,
                 price: 50,
             });
@@ -29,8 +30,8 @@ export default function Stipe_Payment() {
     };
 
     return (
-            <Button className onClick={handleClick}>
-                Checkout
-            </Button>
+        <Button className onClick={handleClick}>
+            Checkout
+        </Button>
     );
 }

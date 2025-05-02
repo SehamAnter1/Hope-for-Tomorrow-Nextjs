@@ -3,6 +3,7 @@ import Button from "./Button";
 import {useState} from "react";
 import axiosInstance from "@/services/axiosInstance";
 import toast from "react-hot-toast";
+import {apiUrls} from "@/services/apiUrls";
 
 export default function Subscription() {
     const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ export default function Subscription() {
         if (!email) return;
 
         try {
-            const response = await axiosInstance.post(`api/subscribe/`, {
+            const response = await axiosInstance.post(apiUrls.subscribe, {
                 email: email,
             });
             if (response.status === 200 || response.status === 201) {
