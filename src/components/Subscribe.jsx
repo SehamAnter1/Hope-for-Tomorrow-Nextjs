@@ -1,23 +1,33 @@
 import {subscribe_illustration_character_icon, subscribe_lines_icon, subscribe_rign_icon} from "@/assets/icons";
 import Button from "./Button";
 import {useState} from "react";
-import {handleSubscribe} from "@/services/requests";
+import axiosInstance from "@/services/axiosInstance";
+import toast from "react-hot-toast";
 
 export default function Subscription() {
     const [email, setEmail] = useState("");
-    const onSubscribe = async (e) => {
+    // handleSubscribe
+    const handleSubscribe = async (e) => {
         e.preventDefault();
 
         if (!email) return;
 
         try {
-            await handleSubscribe({email});
-            setEmail("");
-        } catch (err) {
-            console.error("Subscribe failed", err);
+            const response = await axiosInstance.post(`api/subscribe/`, {
+                email: email,
+            });
+            if (response.status === 200 || response.status === 201) {
+                console.log("response", response);
+                toast.success("Subscription successful!");
+                setEmail("");
+            }
+            return response.data;
+        } catch (error) {
+            console.error("Subscription error:", error);
+            toast.error(`Error: ${error.response?.data?.message || error.message}`);
+            throw error;
         }
     };
-
     return (
         <section className="flex  flex-col md:flex-row items-center justify-center gap-[60px] overflow-hidden bg-white py-12 px-6 md:px-20">
             {/* Left Illustration */}
@@ -31,7 +41,7 @@ export default function Subscription() {
                     Get incredible stories, promotions, & offers in your inbox
                 </h3>
 
-                <form onSubmit={onSubscribe} className="flex relative flex-col md:flex-row items-center gap-4">
+                <form onSubmit={handleSubscribe} className="flex relative flex-col md:flex-row items-center gap-4">
                     <span className="absolute bottom-[-35px] left-[-160px] ">{subscribe_rign_icon}</span>
                     <input
                         type="email"
