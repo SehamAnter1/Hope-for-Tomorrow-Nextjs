@@ -13,13 +13,12 @@ const Button = ({
     variant = "primary", // primary, outline, text, disabled, success
     stopPropagation,
 }) => {
-    const baseClass = `px-4 py-2 h-[48px] 2xl:h-[56px] rounded-full flex items-center justify-center gap-[8px]  body__large transition-all transition-all text-center  ${className}`;
+    const baseClass = `px-4 py-2 h-[48px] 2xl:h-[56px] rounded-[6px] flex items-center justify-center gap-[8px]  body__large transition-all transition-all text-center  ${className}`;
     const variants = {
         primary: "bg-primary text-white hover:bg-primary-hovered",
         outline: "border border-secondary  text-secondary hover:bg-secondary-hovered ",
-        text: "text-secondary gap-s  !p-0 !h-auto rounded-[24px] ",
-        transparent:
-            "border-outline border-[1px] hover:bg-container-active-chips text-on-surface-secondary gap-s p-s rounded-[24px] ",
+        text: "text-secondary gap-s  !p-0 !h-auto ",
+        transparent: "border-outline border-[1px] hover:bg-container-active-chips text-on-surface-secondary gap-s p-s ",
         disabled: " bg-container-disabled text-on-container-disabled cursor-not-allowed",
         success: "border border-green-500 text-green-500 hover:bg-green-500 hover:text-white",
     };
