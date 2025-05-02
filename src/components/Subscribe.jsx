@@ -1,8 +1,23 @@
 import {subscribe_illustration_character_icon, subscribe_lines_icon, subscribe_rign_icon} from "@/assets/icons";
-import Image from "next/image";
 import Button from "./Button";
+import {useState} from "react";
+import {handleSubscribe} from "@/services/requests";
 
 export default function Subscription() {
+    const [email, setEmail] = useState("");
+    const onSubscribe = async (e) => {
+        e.preventDefault();
+
+        if (!email) return;
+
+        try {
+            await handleSubscribe({email});
+            setEmail("");
+        } catch (err) {
+            console.error("Subscribe failed", err);
+        }
+    };
+
     return (
         <section className="flex  flex-col md:flex-row items-center justify-center gap-[60px] overflow-hidden bg-white py-12 px-6 md:px-20">
             {/* Left Illustration */}
@@ -16,10 +31,12 @@ export default function Subscription() {
                     Get incredible stories, promotions, & offers in your inbox
                 </h3>
 
-                <form className="flex relative flex-col md:flex-row items-center gap-4">
+                <form onSubmit={onSubscribe} className="flex relative flex-col md:flex-row items-center gap-4">
                     <span className="absolute bottom-[-35px] left-[-160px] ">{subscribe_rign_icon}</span>
                     <input
                         type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         placeholder="youremail@example.com"
                         className="w-full relative z-50 md:w-2/3 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
