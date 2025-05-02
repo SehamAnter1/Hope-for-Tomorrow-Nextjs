@@ -447,9 +447,7 @@ const Form_Builder = ({
                         onClick={() => router.back()}
                         // to={`/user/${role}/profile`}
                         text={"Previous"}
-                        className={`w-full !font-normal !text-primary_title !bg-[#15CC9642]  ${
-                            from !== "profile" ? "!rounded-[14px]" : ""
-                        }  ${btn_class}`}
+                        className={`w-full  ${from !== "profile" ? "!rounded-[14px]" : ""}  ${btn_class}`}
                         disabled={isSubmitting}
                     ></Button>
                 )}
