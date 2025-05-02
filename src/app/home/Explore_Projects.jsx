@@ -1,9 +1,10 @@
 "use client";
 
 import {useSWRFetcher} from "@/hooks/useSWRFetcher";
+import {apiUrls} from "@/services/apiUrls";
 import Link from "next/link";
 export default function Explore_Projects() {
-    const {data: categories, isLoading, isError} = useSWRFetcher("/api/categories/");
+    const {data: categories, isLoading, isError} = useSWRFetcher(apiUrls.categories);
 
     if (isLoading) return <p>Loading...</p>;
     if (isError) return <p>Something went wrong!</p>;

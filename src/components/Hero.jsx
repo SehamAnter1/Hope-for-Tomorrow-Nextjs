@@ -1,9 +1,10 @@
 import {useSWRFetcher} from "@/hooks/useSWRFetcher";
+import {apiUrls} from "@/services/apiUrls";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
-    const {data, isLoading, isError, error} = useSWRFetcher("/api/projects/latest/");
+    const {data, isLoading, isError, error} = useSWRFetcher(apiUrls.latestProjects);
 
     return (
         <section className="flex pt-[20px] md:pt-[56px] flex-col-reverse md:flex-row items-center justify-between ">
