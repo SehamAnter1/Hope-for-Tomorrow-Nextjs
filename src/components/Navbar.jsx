@@ -1,6 +1,10 @@
 "use client";
 
+import {useAuth} from "@/context/AuthContext";
+
 export default function Navbar() {
+    const {user, isAuthenticated, logout} = useAuth();
+
     return (
         <nav className="flex justify-between items-center py-4 px-8 bg-white ">
             <div className="flex items-center gap-2">
@@ -26,9 +30,20 @@ export default function Navbar() {
                 <div className="relative">
                     <input type="text" placeholder="Search" className="border rounded-full py-1 px-4 text-sm" />
                 </div>
-                <button className="bg-primary text-white rounded-full py-2 px-4 text-sm font-semibold">
-                    Get started
-                </button>
+
+                {isAuthenticated ? (
+                    <>
+                        <p>Welcome, {user?.name}</p>
+                        <button onClick={logout}>Logout</button>
+                    </>
+                ) : (
+                    <>
+                        <a href="/auth/login">Login</a>
+                        <button className="bg-primary text-white rounded-full py-2 px-4 text-sm font-semibold">
+                            Get started
+                        </button>
+                    </>
+                )}
             </div>
         </nav>
     );
