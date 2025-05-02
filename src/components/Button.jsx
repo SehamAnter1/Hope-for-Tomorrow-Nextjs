@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Button = ({
-    to,
+    href,
     onClick,
     type,
     text,
@@ -41,9 +41,9 @@ const Button = ({
             )}
         </>
     );
-    if (to) {
+    if (href) {
         return (
-            <Link to={to} className={btnClass}>
+            <Link href={href} className={btnClass}>
                 {buttonContent}
             </Link>
         );

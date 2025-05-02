@@ -456,7 +456,7 @@ const Form_Builder = ({
                 <Button
                     type={isDirty ? "submit" : "button"}
                     loading={isSubmitting}
-                    to={isDirty ? "" : btn_to}
+                    href={isDirty ? "" : btn_to}
                     text={button_label}
                     icon_first
                     className={`w-full flex-1   ${btn_class} `}

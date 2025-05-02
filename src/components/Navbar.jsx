@@ -1,6 +1,8 @@
 "use client";
 
 import {useAuth} from "@/context/AuthContext";
+import Link from "next/link";
+import Button from "./Button";
 
 export default function Navbar() {
     const {user, isAuthenticated, logout} = useAuth();
@@ -38,10 +40,10 @@ export default function Navbar() {
                     </>
                 ) : (
                     <>
-                        <a href="/auth/login">Login</a>
-                        <button className="bg-primary text-white rounded-full py-2 px-4 text-sm font-semibold">
-                            Get started
-                        </button>
+                        <Button variant="text" href="/auth/login">
+                            Login
+                        </Button>
+                        <Button href="/auth/register">Get started</Button>
                     </>
                 )}
             </div>
