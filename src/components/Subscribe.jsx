@@ -17,14 +17,14 @@ export default function Subscription() {
                 </h3>
 
                 <form className="flex relative flex-col md:flex-row items-center gap-4">
-                    <span className="absolute left-[-160px] ">{subscribe_rign_icon}</span>
+                    <span className="absolute bottom-[-35px] left-[-160px] ">{subscribe_rign_icon}</span>
                     <input
                         type="email"
                         placeholder="youremail@example.com"
                         className="w-full relative z-50 md:w-2/3 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     />
                     <Button className={"w-[154px]"}>Subscribe</Button>
-                    <span className="absolute right-[-20px] top-[-60px] ">{subscribe_lines_icon}</span>
+                    <span className="absolute right-[-40px] top-[-70px] ">{subscribe_lines_icon}</span>
                 </form>
             </div>
         </section>
