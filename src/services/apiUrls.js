@@ -1,4 +1,5 @@
 export const apiUrls = {
+    projects:"/api/projects/",
     latestProjects:"/api/projects/latest/",
     categories:"/api/categories/",
     payment:'api/payment/',
