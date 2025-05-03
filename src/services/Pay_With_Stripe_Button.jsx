@@ -4,13 +4,13 @@ import Button from "@/components/Button";
 import axiosInstance from "./axiosInstance";
 import toast from "react-hot-toast";
 import {apiUrls} from "./apiUrls";
-export default function Stipe_Payment() {
+export default function Stipe_Payment({project_id, price}) {
     const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUPLISH_KEY);
     const handleClick = async () => {
         try {
             const response = await axiosInstance.post(apiUrls.payment, {
-                project_id: 8,
-                price: 50,
+                project_id: project_id,
+                price: price,
             });
 
             const {id} = response.data;

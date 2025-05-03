@@ -9,6 +9,7 @@ import Swiper_Component from "@/components/Swiper_Component";
 import {baseURL} from "@/utilis/helpers";
 import {donors_heart_icon} from "@/assets/icons";
 import General_Layout from "@/layouts/General_Layout";
+import Stipe_Payment from "@/services/Pay_With_Stripe_Button";
 
 export default async function ProjectPage({params}) {
     const {id} = await params;
@@ -26,13 +27,13 @@ export default async function ProjectPage({params}) {
             <div className="p-6 container mx-auto md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left section: Images + Description */}
                 <div className="lg:col-span-2">
-                    <Swiper_Component images={project?.images} />
+                    <Swiper_Component images={[{image: project?.cover}, ...project?.images]} />
                     <h1 className="text-2xl font-semibold mb-2">{project.title}</h1>
                     <p className="text-gray-600 mb-6">{project.description}</p>
 
                     <div className="flex gap-4">
-                        {/* <Button variant="outline">Share</Button>
-                    <Button className="bg-indigo-500 text-white">Donate now!</Button> */}
+                        {/* <Button variant="outline">Share</Button> */}
+                        <Stipe_Payment project_id={id} price={30} />
                     </div>
                 </div>
 
