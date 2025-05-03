@@ -7,6 +7,7 @@ import {apiUrls} from "@/services/apiUrls";
 import {useSWRFetcher} from "@/hooks/useSWRFetcher";
 import Swiper_Component from "@/components/Swiper_Component";
 import {baseURL} from "@/utilis/helpers";
+import {donors_heart_icon} from "@/assets/icons";
 
 export default async function ProjectPage({params}) {
     const {id} = await params;
@@ -18,7 +19,6 @@ export default async function ProjectPage({params}) {
     console.log("project", project);
 
     if (!project) return notFound();
-
 
     return (
         <div className="p-6 container mx-auto md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -58,8 +58,11 @@ export default async function ProjectPage({params}) {
 
                 <ul className="text-sm text-gray-700 space-y-2">
                     {project?.top_donors?.map((donor, idx) => (
-                        <li className="flex justify-between" key={idx}>
-                            <span>{donor.username.split("@")[0]}</span>
+                        <li className="flex justify-between items-center" key={idx}>
+                            <div className="flex items-center gap-2">
+                                {donors_heart_icon}
+                                <span>{donor.username.split("@")[0]}</span>
+                            </div>
                             <span>${donor.total_donated}</span>
                         </li>
                     ))}
