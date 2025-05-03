@@ -1,78 +1,37 @@
-"use client";
 import {notFound} from "next/navigation";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Thumbs} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/thumbs";
-import Image from "next/image";
 import Button from "@/components/Button";
-import {use, useState} from "react";
 import {apiUrls} from "@/services/apiUrls";
 import {useSWRFetcher} from "@/hooks/useSWRFetcher";
+import Swiper_Component from "@/components/Swiper_Component";
+import {baseURL} from "@/utilis/helpers";
 
-export default function ProjectPage({params}) {
-    const {id} = params;
+export default async function ProjectPage({params}) {
+    const {id} = await params;
     console.log("params", id);
-    const {data: project, isLoading, isError} = useSWRFetcher(`${apiUrls.projects}${id}/`);
+    const res = await fetch(baseURL + apiUrls.projects + id + "/");
+    if (!res.ok) return notFound();
+
+    const project = await res.json();
     console.log("project", project);
+
     if (!project) return notFound();
 
     const percentage = Math.min((project.raised / project.goal) * 100, 100);
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
         <div className="p-6 md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left section: Images + Description */}
             <div className="lg:col-span-2">
-                {/* Swiper gallery */}
-                <Swiper
-                    spaceBetween={10}
-                    slidesPerView={1}
-                    thumbs={{swiper: thumbsSwiper}}
-                    modules={[Thumbs]}
-                    className="mb-4 rounded-xl overflow-hidden"
-                >
-                    {project?.images?.map((src, index) => (
-                        <SwiperSlide key={index}>
-                            <Image
-                                src={src}
-                                alt={`Image ${index}`}
-                                width={800}
-                                height={500}
-                                className="w-full h-auto object-cover"
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-
-                {/* Thumbnails Swiper */}
-                <Swiper
-                    onSwiper={setThumbsSwiper}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    watchSlidesProgress
-                    modules={[Thumbs]}
-                    className="rounded-md"
-                >
-                    {project?.images?.map((src, index) => (
-                        <SwiperSlide key={index}>
-                            <Image
-                                src={src}
-                                alt={`Thumbnail ${index}`}
-                                width={150}
-                                height={80}
-                                className="w-full h-20 object-cover cursor-pointer border border-gray-300 hover:border-indigo-500 rounded"
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <Swiper_Component images={project?.images} />
                 <h1 className="text-2xl font-semibold mb-2">{project.title}</h1>
                 <p className="text-gray-600 mb-6">{project.description}</p>
 
                 <div className="flex gap-4">
-                    <Button variant="outline">Share</Button>
-                    <Button className="bg-indigo-500 text-white">Donate now!</Button>
+                    {/* <Button variant="outline">Share</Button>
+                    <Button className="bg-indigo-500 text-white">Donate now!</Button> */}
                 </div>
             </div>
 
@@ -92,10 +51,10 @@ export default function ProjectPage({params}) {
                 </div>
 
                 <div className="flex gap-2 mb-4">
-                    <Button variant="outline" className="w-1/2">
+                    {/* <Button variant="outline" className="w-1/2">
                         Share
                     </Button>
-                    <Button className="bg-indigo-500 text-white w-1/2">Donate now!</Button>
+                    <Button className="bg-indigo-500 text-white w-1/2">Donate now!</Button> */}
                 </div>
 
                 <ul className="text-sm text-gray-700 space-y-2">
