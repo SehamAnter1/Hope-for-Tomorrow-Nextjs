@@ -19,10 +19,9 @@ export default async function ProjectPage({params}) {
 
     if (!project) return notFound();
 
-    const percentage = Math.min((project.raised / project.goal) * 100, 100);
 
     return (
-        <div className="p-6 md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="p-6 container mx-auto md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left section: Images + Description */}
             <div className="lg:col-span-2">
                 <Swiper_Component images={project?.images} />
@@ -43,11 +42,11 @@ export default async function ProjectPage({params}) {
                 </p>
 
                 <div className="mt-4 mb-2">
-                    <span className="text-2xl font-bold">${project?.raised?.toLocaleString()}</span>
-                    <span className="text-sm text-gray-500"> raised of ${project?.goal?.toLocaleString()} goal</span>
+                    <span className="text-2xl font-bold">${+project?.donations_amount}</span>
+                    <span className="text-sm text-gray-500"> raised of ${project?.price_goal} goal</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                    <div className="bg-indigo-500 h-2.5 rounded-full" style={{width: `${percentage}%`}} />
+                    <div className="bg-indigo-500 h-2.5 rounded-full" style={{width: `${+project?.progress}%`}} />
                 </div>
 
                 <div className="flex gap-2 mb-4">
@@ -58,10 +57,10 @@ export default async function ProjectPage({params}) {
                 </div>
 
                 <ul className="text-sm text-gray-700 space-y-2">
-                    {project?.donors?.map((donor, idx) => (
+                    {project?.top_donors?.map((donor, idx) => (
                         <li className="flex justify-between" key={idx}>
-                            <span>{donor.name}</span>
-                            <span>${donor.amount}</span>
+                            <span>{donor.username.split("@")[0]}</span>
+                            <span>${donor.total_donated}</span>
                         </li>
                     ))}
                 </ul>
