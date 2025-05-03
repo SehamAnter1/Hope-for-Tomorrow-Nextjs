@@ -18,30 +18,36 @@ export default function ProjectsPage() {
                             <Link
                                 key={project.id}
                                 href={`/projects/${project.id}`}
-                                className="block border rounded-xl overflow-hidden hover:shadow-md transition"
+                                className=" grid  gap-3 rounded-xl overflow-hidden shadow-md transition"
                             >
                                 <Image
-                                    src={project.cover}
-                                    alt={project.title}
-                                    width={400}
-                                    height={250}
-                                    className="w-full h-48 object-cover"
+                                    src={project?.cover}
+                                    alt={project?.title}
+                                    width={147}
+                                    height={100}
+                                    className="rounded-md w-full h-[192px] object-cover"
                                 />
-                                <div className="p-4">
-                                    <h2 className="text-lg font-semibold">{project.title}</h2>
-                                    <p className="text-sm text-gray-500">
-                                        {project.category} · {project.country}
-                                    </p>
-                                    <div className="mt-2 h-2 bg-gray-200 rounded-full">
+                                <div className="flex-1 grid p-[12px_16px_24px] gap-[12px]">
+                                    <h3 className="font-semibold text-[#323842] text-sm">{project?.title}</h3>
+                                    <p className="fon text-[#9095A0] text-sm">{project?.description?.slice(0, 100)}</p>
+                                    <div className="mt-1 w-full bg-gray-200 rounded-full h-1.5">
                                         <div
-                                            className="h-2 bg-indigo-500 rounded-full"
-                                            style={{width: `${+project?.progress}%`}}
+                                            className="bg-primary h-1.5 rounded-full"
+                                            style={{width: `${+project?.progress || 0}%`}}
                                         />
                                     </div>
-                                    <p className="text-sm text-gray-700 mt-1">
-                                        ${project.donations_amount.toLocaleString()} raised of $
-                                        {project.price_goal.toLocaleString()}
-                                    </p>
+                                    <div className="flex justify-between">
+                                        <div className="flex gap-2">
+                                            {project?.categories?.map((item, i) => (
+                                                <p
+                                                    key={i}
+                                                    className="text-xs rounded-[12px] p-[3px_8px]  text-[#323842]  bg-[#F3F4F6]"
+                                                >
+                                                    {item}
+                                                </p>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                             </Link>
                         );
