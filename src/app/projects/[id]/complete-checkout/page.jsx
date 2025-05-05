@@ -3,8 +3,6 @@
 import Auth_Layout from "@/layouts/Auth_Layout";
 // import
 import Form_Builder from "@/components/Form_Builder";
-import Stipe_Payment from "@/services/Pay_With_Stripe_Button";
-import {useState} from "react";
 import axiosInstance from "@/services/axiosInstance";
 import {apiUrls} from "@/services/apiUrls";
 import {loadStripe} from "@stripe/stripe-js";

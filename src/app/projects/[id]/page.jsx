@@ -5,9 +5,7 @@ import {apiUrls} from "@/services/apiUrls";
 import {useSWRFetcher} from "@/hooks/useSWRFetcher";
 import Swiper_Component from "@/components/Swiper_Component";
 import {baseURL} from "@/utilis/helpers";
-import {donors_heart_icon} from "@/assets/icons";
 import General_Layout from "@/layouts/General_Layout";
-import Stipe_Payment from "@/services/Pay_With_Stripe_Button";
 import Donation_Card from "@/components/Donation_Card";
 
 export default async function ProjectPage({params}) {
@@ -29,11 +27,6 @@ export default async function ProjectPage({params}) {
                     <Swiper_Component images={[{image: project?.cover}, ...project?.images]} />
                     <h1 className="text-2xl font-semibold mb-2">{project.title}</h1>
                     <p className="text-gray-600 mb-6">{project.description}</p>
-
-                    <div className="flex gap-4">
-                        {/* <Button variant="outline">Share</Button> */}
-                        <Stipe_Payment project_id={id} price={30} />
-                    </div>
                 </div>
 
                 {/* Right section: Donation card */}
