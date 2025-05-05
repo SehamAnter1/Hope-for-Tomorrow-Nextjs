@@ -5,6 +5,9 @@ import Auth_Layout from "@/layouts/Auth_Layout";
 import Form_Builder from "@/components/Form_Builder";
 import Stipe_Payment from "@/services/Pay_With_Stripe_Button";
 import {useState} from "react";
+import axiosInstance from "@/services/axiosInstance";
+import {apiUrls} from "@/services/apiUrls";
+import {loadStripe} from "@stripe/stripe-js";
 
 // page
 export default function Page({params}) {
@@ -33,24 +36,30 @@ export default function Page({params}) {
             },
         },
     ];
-    const [watchedData, setwatchedData] = useState();
-console.log("watchedData",watchedData)
-    const handleLogin = (values) => {
-        console.log(values);
+    const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUPLISH_KEY);
+    const handleClick = async (values) => {
+        try {
+            const response = await axiosInstance.post(apiUrls.payment, {
+                project_id: id,
+                price: +values.amount,
+            });
+
+            // Get Stripe.js instance
+            const stripe = await stripePromise;
+
+            // Redirect to Stripe Checkout
+            const {error} = await stripe.redirectToCheckout({sessionId: response.data.id});
+
+            if (error) {
+                toast.error("Stripe Checkout error:", error.message);
+            }
+        } catch (error) {
+            console.error("Error creating checkout session:", error);
+        }
     };
     return (
         <Auth_Layout className={"grid"}>
-            <Form_Builder
-                Input_List={input_list}
-                onSubmit={handleLogin}
-                from="auth"
-                with_forget_text
-                button_label="Sign in"
-                watchedData={watchedData}
-                setwatchedData={setwatchedData}
-                bottom_link_text="Sign up"
-            />
-            <Stipe_Payment project_id={id} price={+watchedData?.amount} />
+            <Form_Builder Input_List={input_list} onSubmit={handleClick} button_label="Check Out!" />
         </Auth_Layout>
     );
 }

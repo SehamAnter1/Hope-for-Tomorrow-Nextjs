@@ -461,7 +461,7 @@ const Form_Builder = ({
                     disabled={!isValid || isSubmitting}
                     variant={!isValid || isSubmitting ? "disabled" : "primary"}
                 >
-                    {"btn_icon" && (!isValid || isSubmitting) ? "mudted_plus_icon" : "btn_icon"}
+                    {/* {"btn_icon" && (!isValid || isSubmitting) ? "mudted_plus_icon" : "btn_icon"} */}
                 </Button>
             </div>
         </form>
