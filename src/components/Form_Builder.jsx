@@ -171,7 +171,7 @@ const Form_Builder = ({
                         <div
                             className={`${
                                 item?.type !== "file"
-                                    ? ` flex p-[16px] transition-all duration-300 focus-within:border-on-surface-outline-active focus-within:caret-on-surface-outline-active rounded-[18px] ${
+                                    ? ` flex p-[16px] focus-within:outline-0    transition-all duration-300 focus-within:border-on-surface-outline-active focus-within:caret-on-surface-outline-active rounded-[18px] ${
                                           item?.type !== "custom_file" && item?.type !== "textarea"
                                               ? " h-[56px]"
                                               : item?.type === "textarea"
