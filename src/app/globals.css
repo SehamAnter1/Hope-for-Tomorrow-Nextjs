@@ -10,10 +10,13 @@
 
 
 
+
 --primary: #271969;
 
 
 --secondary: #171a1f;
+--light-gray: #f3f4f6;
+
 
 
 }
@@ -25,6 +28,8 @@
   --font-mono: var(--font-geist-mono);
 --color-primary: var(--primary);
 --color-secondary: var(--secondary);
+--color-light-gray: var(--light-gray);
+
 
 
 

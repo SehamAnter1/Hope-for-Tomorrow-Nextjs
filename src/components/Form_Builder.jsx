@@ -9,6 +9,7 @@ import Button from "./Button";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {useParams} from "next/navigation";
+import {close_aye_icon, open_aye_icon} from "@/assets/icons";
 // import {
 //     attachment_icon,
 //     clear_search_icon,
@@ -171,13 +172,13 @@ const Form_Builder = ({
                         <div
                             className={`${
                                 item?.type !== "file"
-                                    ? ` flex p-[16px] focus-within:outline-0    transition-all duration-300 focus-within:border-on-surface-outline-active focus-within:caret-on-surface-outline-active rounded-[18px] ${
+                                    ? ` flex p-[16px] bg-light-gray focus-within:outline-0    transition-all duration-300   rounded-[6px] ${
                                           item?.type !== "custom_file" && item?.type !== "textarea"
                                               ? " h-[56px]"
                                               : item?.type === "textarea"
                                               ? "h-[176px]"
                                               : " !p-0"
-                                      }  gap-[8px] items-start border-[1px]  border-on-surface-outline ${
+                                      }  gap-[8px] items-start ${
                                           item?.type !== "calendar" && item?.type !== "custom_file"
                                               ? " "
                                               : "items-center !p-0 !border-0 verflow-hidden"
@@ -241,7 +242,7 @@ const Form_Builder = ({
                                                     role="button"
                                                     onClick={() => togglePassword(index)}
                                                 >
-                                                    {showPassword[index] ? "open_aye_icon" : "close_aye_icon"}
+                                                    {showPassword[index] ? open_aye_icon : close_aye_icon}
                                                 </span>
                                             )}
                                             {item.type === "textarea" && (
@@ -312,7 +313,7 @@ const Form_Builder = ({
                                             )} */}
 
                                             {item.type === "file" && (
-                                                <div className="picture border-[1px] cursor-pointer flex items-center justify-center   border-on-surface-outline rounded-[18px] w-full h-[445px] mx-auto overflow-hidden relative">
+                                                <div className="picture  cursor-pointer flex items-center justify-center rounded-[6px] w-full h-[445px] mx-auto overflow-hidden relative">
                                                     {previews[item.fieldName] ? (
                                                         <img
                                                             src={previews[item.fieldName]}
@@ -344,11 +345,11 @@ const Form_Builder = ({
                                                 <div className="w-full  gap-[8px] grid">
                                                     <div
                                                         className="flex-1 h-[56px]
- border-[1px]  border-on-surface-outline  justify-center items-center flex relative  rounded-[18px] "
+  justify-center items-center flex relative  rounded-[6px] "
                                                     >
                                                         <input
                                                             type="file"
-                                                            className="opacity-0  rounded-[18px] absolute top-0 start-0 w-full h-full mx-auto cursor-pointer"
+                                                            className="opacity-0  rounded-[6px] absolute top-0 start-0 w-full h-full mx-auto cursor-pointer"
                                                             accept="image/*,.pdf,.doc,.docx"
                                                             id={item.fieldName}
                                                             onChange={(e) =>
