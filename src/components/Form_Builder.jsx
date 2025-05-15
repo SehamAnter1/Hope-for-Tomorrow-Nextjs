@@ -171,7 +171,7 @@ const Form_Builder = ({
                         <div
                             className={`${
                                 item?.type !== "file"
-                                    ? ` flex p-[16px] transition-all duration-300 focus-within:border-on-surface-outline-active focus-within:caret-on-surface-outline-active rounded-[28px] ${
+                                    ? ` flex p-[16px] transition-all duration-300 focus-within:border-on-surface-outline-active focus-within:caret-on-surface-outline-active rounded-[18px] ${
                                           item?.type !== "custom_file" && item?.type !== "textarea"
                                               ? " h-[56px]"
                                               : item?.type === "textarea"
@@ -312,7 +312,7 @@ const Form_Builder = ({
                                             )} */}
 
                                             {item.type === "file" && (
-                                                <div className="picture border-[1px] cursor-pointer flex items-center justify-center   border-on-surface-outline rounded-[28px] w-full h-[445px] mx-auto overflow-hidden relative">
+                                                <div className="picture border-[1px] cursor-pointer flex items-center justify-center   border-on-surface-outline rounded-[18px] w-full h-[445px] mx-auto overflow-hidden relative">
                                                     {previews[item.fieldName] ? (
                                                         <img
                                                             src={previews[item.fieldName]}
@@ -344,11 +344,11 @@ const Form_Builder = ({
                                                 <div className="w-full  gap-[8px] grid">
                                                     <div
                                                         className="flex-1 h-[56px]
- border-[1px]  border-on-surface-outline  justify-center items-center flex relative  rounded-[28px] "
+ border-[1px]  border-on-surface-outline  justify-center items-center flex relative  rounded-[18px] "
                                                     >
                                                         <input
                                                             type="file"
-                                                            className="opacity-0  rounded-[28px] absolute top-0 start-0 w-full h-full mx-auto cursor-pointer"
+                                                            className="opacity-0  rounded-[18px] absolute top-0 start-0 w-full h-full mx-auto cursor-pointer"
                                                             accept="image/*,.pdf,.doc,.docx"
                                                             id={item.fieldName}
                                                             onChange={(e) =>
