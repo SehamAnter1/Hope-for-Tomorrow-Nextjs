@@ -155,7 +155,7 @@ const Form_Builder = ({
     };
     return (
         <form
-            className={`grid text-on-surface-secondary gap-[20px] 2xl:gap-[40px] `}
+            className={`grid text-on-surface-secondary  w-full sm:w-[350px] gap-[20px] 2xl:gap-[40px] `}
             onSubmit={handleSubmit(handleFormSubmit)}
         >
             <div className="grid gap-[24px]">
