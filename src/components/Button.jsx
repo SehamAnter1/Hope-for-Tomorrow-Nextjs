@@ -19,7 +19,7 @@ const Button = ({
         outline: "border border-secondary  text-secondary hover:bg-secondary-hovered ",
         text: "text-secondary gap-s  !p-0 !h-auto ",
         transparent: "border-outline border-[1px] hover:bg-container-active-chips text-on-surface-secondary gap-s p-s ",
-        disabled: " bg-container-disabled text-on-container-disabled cursor-not-allowed",
+        disabled: " bg-disabled  cursor-not-allowed",
         success: "border border-green-500 text-green-500 hover:bg-green-500 hover:text-white",
     };
     const btnClass = `text-nowrap cursor-pointer ${baseClass} ${variants[variant]} ${

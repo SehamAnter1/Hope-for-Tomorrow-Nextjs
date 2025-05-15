@@ -17,6 +17,8 @@
 --secondary: #171a1f;
 --light-gray: #f3f4f6;
 --light-gray-secondary: #bcc1ca;
+--disabled: #bec1e8;
+
 
 
 
@@ -32,6 +34,8 @@
 --color-secondary: var(--secondary);
 --color-light-gray: var(--light-gray);
 --color-light-gray-secondary: var(--light-gray-secondary);
+--color-disabled: var(--disabled);
+
 
 
 
