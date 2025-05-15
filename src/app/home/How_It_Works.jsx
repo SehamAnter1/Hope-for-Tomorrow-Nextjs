@@ -1,5 +1,6 @@
 import {check_how_to_work_icon, gift_how_to_work_icon, world_how_to_work_icon} from "@/assets/icons";
 import React from "react";
+import CountUp from "react-countup";
 
 export default function How_It_Works() {
     return (
@@ -24,7 +25,7 @@ export default function How_It_Works() {
                             title: "Culpa do laborum incididunt",
                             desc: "Veniam ea tempor id in adipisicing labore ut nisi aute est eu.",
                         },
-                    ].map((item, i) => (
+                    ]?.map((item, i) => (
                         <div
                             key={i}
                             className="bg-[#301E7F]/80 mx-auto w-[368px] rounded-lg p-6 flex flex-col items-center gap-4"
@@ -44,12 +45,24 @@ export default function How_It_Works() {
                         {label: "Projects", value: "35,706"},
                         {label: "Countries", value: "175+"},
                         {label: "Companies", value: "580"},
-                    ].map((stat, i) => (
-                        <div key={i}>
-                            <p className="text-cyan-300 text-[36px] font-bold">{stat.value}</p>
-                            <p className="text-sm">{stat.label}</p>
-                        </div>
-                    ))}
+                    ].map((stat, i) => {
+                        const original = stat.value;
+                        const prefix = original.match(/^[^\d]+/)?.[0] || "";
+                        const suffix = original.match(/[^\d]+$/)?.[0] || "";
+
+                        const number = parseFloat(original.replace(/[^0-9.]/g, ""));
+
+                        return (
+                            <div key={i}>
+                                <p className="text-cyan-300 text-[36px] font-bold">
+                                    {prefix}
+                                    <CountUp end={number} separator="," />
+                                    {suffix}
+                                </p>
+                                <p className="text-sm">{stat.label}</p>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
