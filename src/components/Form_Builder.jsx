@@ -166,7 +166,7 @@ const Form_Builder = ({
                                 <label htmlFor={item?.fieldName} className={`font-bold leading-[20px]`}>
                                     {item?.label}
                                 </label>
-                                {item?.validator?.required && "required_icon()"}
+                                {item?.validator?.required && <span className="text-red-700">*</span>}
                             </div>
                         )}
                         <div
@@ -191,7 +191,7 @@ const Form_Builder = ({
                                     : ""
                             }`
                                     : ""
-                            } ${errors[item.fieldName] ? "border-1 !border-on-container-error" : ""}`}
+                            } ${errors[item.fieldName] ? "border-1 !border-red-700" : ""}`}
                         >
                             {item?.icon && <span className="">{item?.icon}</span>}
                             <Controller
@@ -412,7 +412,7 @@ const Form_Builder = ({
 
                         {errors[item.fieldName] && (
                             <p
-                                className={`flex px-[16px] text-start items-start gap-[4px] text-on-container-error label__large relative ${
+                                className={`flex text-start items-start gap-[4px] text-red-700 label__large relative ${
                                     item?.type === "file" ? "mx-auto" : ""
                                 } `}
                             >

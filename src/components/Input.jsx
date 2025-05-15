@@ -9,7 +9,9 @@ const Input = ({label, type, placeholder, from, error, disabled, inputValue, han
                 onChange={(e) => handleChange(e.target.value)}
                 disabled={disabled}
                 min={min}
-                className={`input_container w-full input-field  ${error ? "input-error" : ""} ${className} `}
+                className={` placeholder:!text-light-gray-secondary w-full input-field  ${
+                    error ? "text-red-700" : ""
+                } ${className} `}
             />
         </>
     );
