@@ -19,7 +19,7 @@ export default function Explore_Projects() {
                 {categories?.map((category) => (
                     <span
                         key={category?.id}
-                        className="px-4 flex items-center  py-1 text-sm bg-white text-gray-700 rounded-full border border-gray-200 shadow-sm hover:bg-gray-100  transition"
+                        className="px-4 flex items-center  py-2 text-sm bg-white text-gray-700 rounded-full transition"
                     >
                         {category?.title}
                     </span>
@@ -27,7 +27,7 @@ export default function Explore_Projects() {
 
                 <Link
                     href={`/projects`}
-                    className="px-4 py-1 self-start !h-fit text-sm bg-white text-gray-700 rounded-full border border-gray-200 shadow-sm hover:bg-gray-100 cursor-pointer flex items-center gap-1 transition"
+                    className="px-4 py-2 self-start !h-fit text-sm bg-white text-gray-700 rounded-full cursor-pointer flex items-center gap-1 transition"
                 >
                     See All <span className="mt-[-2px]">›</span>
                 </Link>

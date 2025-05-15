@@ -8,15 +8,13 @@ import General_Layout from "@/layouts/General_Layout";
 export default function Home() {
     return (
         <General_Layout>
-            <div className="">
-                <div className="grid container mx-auto">
-                    <Hero />
-                    <Explore_Projects />
-                </div>
-                <How_It_Works />
-                <Disaster_Recovery />
-                <Subscription />
+            <div className="grid container mx-auto">
+                <Hero />
+                <Explore_Projects />
             </div>
+            <How_It_Works />
+            <Disaster_Recovery />
+            <Subscription />
         </General_Layout>
     );
 }
