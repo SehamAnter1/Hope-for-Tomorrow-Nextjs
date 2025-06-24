@@ -4,6 +4,7 @@ import Auth_Layout from "@/layouts/Auth_Layout";
 import Form_Builder from "@/components/Form_Builder";
 import { loginUser } from "@/services/authRequests";
 import { useAuth } from "@/context/AuthContext";
+import { redirect } from "next/navigation";
 
 export default function Login() {
     const registerInputs = [
@@ -39,6 +40,8 @@ const handleLogin = async (values) => {
   try {
     const data = await loginUser(values);
     setUser(data);
+      redirect('/home');
+    
     console.log("user",user,"data",data)
   } catch (err) {
     console.error("Login failed", err);
