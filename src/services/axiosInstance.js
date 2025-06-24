@@ -9,9 +9,10 @@ const axiosInstance = axios.create({
   },
 });
 axiosInstance.interceptors.request.use(
-async (config)=>{
-        try {
-        const token = Cookies.get('token')
+  async (config)=>{
+    try {
+      const token = Cookies.get('token')
+      console.log("token",token)
         if(token){
        config.headers['Authorization']=`Bearer ${token}`
         }

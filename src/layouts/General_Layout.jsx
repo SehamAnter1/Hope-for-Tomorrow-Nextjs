@@ -8,7 +8,7 @@ export default function General_Layout({children}) {
   return (
       <AuthProvider>
           <Navbar />
-          <main className="grid gap-10">{children}</main>
+          <main className="grid content-start gap-10">{children}</main>
           <Footer />
           <Toaster />
       </AuthProvider>

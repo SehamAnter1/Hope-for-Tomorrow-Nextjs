@@ -4,7 +4,7 @@ import React from 'react'
 export default function page() {
   return (
     <div>
-        <div className="min-h-screen flex items-center justify-center bg-white px-4">
+        <div className="min-h- content-start flex items-center justify-center bg-white px-4">
       <div className="text-center max-w-md w-full">
         {/* <DonationIcon /> */}
         

@@ -8,11 +8,11 @@ export default function Navbar() {
     const {user, isAuthenticated, logout} = useAuth();
 
     return (
-        <nav className="flex justify-between items-center py-4 px-8 bg-white ">
-            <div className="flex items-center gap-2">
+        <nav className="flex justify-between items-center container py-4  bg-white ">
+            <Link href={"/home"} className="flex items-center cursor-pointer gap-2">
                 <img src="/logo.png" alt="Hope for Tomorrow" className="h-[42px]" />
                 <span className="font-bold text-lg text-primary">Hope for Tomorrow</span>
-            </div>
+            </Link>
 
             <div className="flex  text-black gap-6 items-center">
                 <div className="hidden md:flex gap-6 text-sm font-medium">

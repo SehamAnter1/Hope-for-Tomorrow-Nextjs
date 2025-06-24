@@ -30,7 +30,7 @@ export default function Subscription() {
         }
     };
     return (
-        <section className="flex  flex-col md:flex-row items-center justify-center gap-[60px] overflow-hidden bg-white py-12 px-6 md:px-20">
+        <section className="flex  container flex-col md:flex-row items-center justify-center gap-[60px] overflow-hidden bg-white py-12  ">
             {/* Left Illustration */}
             <div className="w-full relative z-50 md:w-1/3 max-h-[359px] mb-8 md:mb-0">
                 {subscribe_illustration_character_icon}

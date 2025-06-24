@@ -1,6 +1,7 @@
 import './globals.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css'; 
 import 'primereact/resources/primereact.min.css';
+import { Suspense } from 'react';
 
 export default function RootLayout({ children }) {
   return (
@@ -11,7 +12,10 @@ export default function RootLayout({ children }) {
 
     </head>
       <body className="bg-gray-50 min-h-screen flex flex-col">
-       {children}
+       <Suspense fallback={<div className='bg-red-700 h-screen'>Loading page...</div>}>
+       {/* <div className='bg-red-700 h-screen'>Loading page...</div> */}
+          {children}
+        </Suspense>
       </body>
     </html>
   );
