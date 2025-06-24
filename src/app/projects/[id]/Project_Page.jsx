@@ -9,12 +9,10 @@ import General_Layout from "@/layouts/General_Layout";
 import Donation_Card from "@/components/Donation_Card";
 
 export default async function Project_Page({id}) {
-    console.log("params", id);
     const res = await fetch(baseURL + apiUrls.projects + id + "/");
     if (!res.ok) return notFound();
 
     const project = await res.json();
-    console.log("project", project);
 
     if (!project) return notFound();
 
