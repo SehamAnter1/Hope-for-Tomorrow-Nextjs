@@ -2,6 +2,8 @@
 
 import Auth_Layout from "@/layouts/Auth_Layout";
 import Form_Builder from "@/components/Form_Builder";
+import { loginUser } from "@/services/authRequests";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Login() {
     const registerInputs = [
@@ -32,16 +34,22 @@ export default function Login() {
             },
         },
     ];
-
-    const handleRegister = (values) => {
-        console.log(values);
-    };
+    const {user, setUser } = useAuth();
+const handleLogin = async (values) => {
+  try {
+    const data = await loginUser(values);
+    setUser(data);
+    console.log("user",user,"data",data)
+  } catch (err) {
+    console.error("Login failed", err);
+  }
+};
 
     return (
         <Auth_Layout>
             <Form_Builder
                 Input_List={registerInputs}
-                onSubmit={handleRegister}
+                onSubmit={handleLogin}
                 from="auth"
                 button_label="Sign up"
                 bottom_text="Already have an account?"

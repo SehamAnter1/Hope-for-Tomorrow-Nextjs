@@ -6,11 +6,13 @@ import { Toaster } from 'react-hot-toast'
 
 export default function General_Layout({children}) {
   return (
-      <AuthProvider>
+   <>
+        <div className="page">
           <Navbar />
           <main className="grid content-start gap-10">{children}</main>
           <Footer />
+        </div>
           <Toaster />
-      </AuthProvider>
+   </>
   );
 }

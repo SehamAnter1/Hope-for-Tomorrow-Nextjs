@@ -5,8 +5,8 @@ export const apiUrls = {
     payment:'api/payment/',
     subscribe:'api/subscribe/',
     // auth
-    login: "/auth/login/",
-    register: "/auth/register/",
+    login: "/accounts/login/",
+    register: "/accounts/register/",
     verifyOtp: "/auth/verify-otp/",
     resendOtp: "/auth/resend-otp/",
     requestReset: "/auth/request-password-reset/",

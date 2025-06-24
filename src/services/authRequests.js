@@ -3,11 +3,13 @@ import Cookies from "js-cookie";
 import { apiUrls } from "@/services/apiUrls";
 
 // Login
+
 export const loginUser = async (credentials) => {
   const res = await axiosInstance.post(apiUrls.login, credentials);
-  const { token } = res.data;
-
-  Cookies.set("authToken", token, { expires: 7, secure: true, sameSite: "Lax" });
+  console.log("res",res)
+  const { access } = res.data;
+  Cookies.set("authToken", access, { expires: 7, secure: true, sameSite: "Lax" });
+    Cookies.set("userData", JSON.stringify(res.data), { expires: 7 });
 
   return res.data;
 };

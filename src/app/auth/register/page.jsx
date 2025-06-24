@@ -2,6 +2,11 @@
 
 import Auth_Layout from "@/layouts/Auth_Layout";
 import Form_Builder from "@/components/Form_Builder";
+import axiosInstance from "@/services/axiosInstance";
+import { apiUrls } from "@/services/apiUrls";
+import { logAndDisplayErrors } from "@/utilis/helpers";
+import toast from "react-hot-toast";
+import { registerUser } from "@/services/authRequests";
 
 export default function Register() {
   const registerInputs = [
@@ -45,8 +50,8 @@ export default function Register() {
     },
   ];
 
-  const handleRegister = (values) => {
-    console.log(values);
+  const handleRegister = async (values) => {
+   await registerUser(values)
   };
 
   return (

@@ -35,7 +35,7 @@ export default function Hero() {
                             data.map((project) => (
                                 <div
                                     key={project.id}
-                                    className="flex p-[8px_12px] items-center shadow-md  rounded-[12px] w-[375px]  overflow-hidden gap-4"
+                                    className="flex p-[8px_12px] items-center shadow-md  rounded-[12px] w-[442px]  overflow-hidden gap-4"
                                 >
                                     <Image
                                         src={project?.cover}
@@ -53,19 +53,19 @@ export default function Hero() {
                                             />
                                         </div>
                                         <div className="flex justify-between">
-                                            <div className="flex gap-2">
+                                            <div className="flex gap-1">
                                                 {project?.categories?.map((item, i) => (
                                                     <p
                                                         key={i}
-                                                        className="text-xs rounded-[12px] p-[3px_8px]  text-[#323842]  bg-[#F3F4F6]"
+                                                        className="text-xs truncate  rounded-[12px] p-[3px_5px]  text-[#323842]  bg-[#F3F4F6]"
                                                     >
-                                                        {item}
+                                                        {item?.slice(0,12)}
                                                     </p>
                                                 ))}
                                             </div>
                                             <Link
                                                 href={`/projects/${project.id}`}
-                                                className="text-primary text-sm underline"
+                                                className="text-primary text-nowrap relative z-[999999] text-sm underline"
                                             >
                                                 View more
                                             </Link>
