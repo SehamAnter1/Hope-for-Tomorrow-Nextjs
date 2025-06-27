@@ -50,3 +50,15 @@ input:focus {
   padding: 10px;
 }
 
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 6px;
+    border-radius: 20px!important;
+    background: var(--light-gray)!important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary)!important;
+  border-radius: 20px!important;
+}

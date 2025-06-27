@@ -336,7 +336,18 @@ export const open_aye_icon = (
         />
     </svg>
 );
-// export const ex_icon=();
+export const loader_icon=(  <svg xmlns="http://www.w3.org/2000/svg" className="sm:h-[200px] sm:w-[200px]" width="100px" height="100px" viewBox="0 0 100 100">
+    <circle cx="30" cy="50" fill="#fff">
+      <animate attributeName="r" values="0;5;0" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="50" cy="50" fill="#fff">
+      <animate attributeName="r" values="0;5;0" dur="1.2s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70" cy="50" fill="#fff">
+      <animate attributeName="r" values="0;5;0" dur="1.2s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+  </svg>
+  );
 // export const ex_icon=();
 // export const ex_icon=();
 // export const ex_icon=();

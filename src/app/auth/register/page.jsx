@@ -13,6 +13,28 @@ export default function Register() {
     {
       id: 1,
       type: "input",
+      fieldName: "first_name",
+      inputType: "input",
+      label: "First Name",
+      placeholder: "Seham",
+      validator: {
+        required: "Required",
+      },
+    },
+    {
+      id: 1,
+      type: "input",
+      fieldName: "last_name",
+      inputType: "text",
+      label: "Last Name",
+      placeholder: "Anter",
+      validator: {
+        required: "Required",
+      },
+    },
+    {
+      id: 1,
+      type: "input",
       fieldName: "email",
       inputType: "email",
       label: "Email",
