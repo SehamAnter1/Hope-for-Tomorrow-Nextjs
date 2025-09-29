@@ -42,7 +42,7 @@ console.log("user",user)
 
                     {isAuthenticated ? (
                         <>
-                            <span className="text-sm">Welcome, {user?.email?.split('@')}</span>
+                            <span className="text-sm">Welcome, {user?.first_name?.split('@')}</span>
                             <button onClick={logout} className="text-sm text-red-500">Logout</button>
                         </>
                     ) : (

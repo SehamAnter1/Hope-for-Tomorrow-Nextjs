@@ -7,6 +7,7 @@ import { apiUrls } from "@/services/apiUrls";
 import { logAndDisplayErrors } from "@/utilis/helpers";
 import toast from "react-hot-toast";
 import { registerUser } from "@/services/authRequests";
+import Link from "next/link";
 
 export default function Register() {
   const registerInputs = [
@@ -78,6 +79,7 @@ export default function Register() {
 
   return (
     <Auth_Layout>
+      <div className="grid gap-[10px]">
       <Form_Builder
         Input_List={registerInputs}
         onSubmit={handleRegister}
@@ -87,6 +89,12 @@ export default function Register() {
         bottom_link="/auth/login"
         bottom_link_text="Sign in"
       />
+      
+        <h2 className={"font-semibold text-[14px] text-gray-500"} >
+                Have an account?
+                <Link className={"text-primary"} href="/auth/login"> Login</Link>
+              </h2>
+            </div>
     </Auth_Layout>
   );
 }
